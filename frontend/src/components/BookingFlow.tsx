@@ -11,7 +11,15 @@ type Slot = {
 };
 
 export default function BookingFlow() {
-  const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  // Use local date instead of UTC to avoid timezone shift
+  const getLocalDateString = (d: Date) => {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const [date, setDate] = useState<string>(getLocalDateString(new Date()));
   const [slots, setSlots] = useState<Slot[]>([]);
   const [selectedSlots, setSelectedSlots] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(false);
@@ -216,7 +224,7 @@ export default function BookingFlow() {
     const d = new Date();
     d.setDate(d.getDate() + i);
     return {
-      isoString: d.toISOString().split('T')[0],
+      isoString: getLocalDateString(d),
       dayName: i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', { weekday: 'short' }),
       dayNumber: d.getDate(),
       monthName: d.toLocaleDateString('en-US', { month: 'short' })

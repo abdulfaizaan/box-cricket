@@ -46,9 +46,20 @@ export const getSlots = async (req: Request, res: Response) => {
       
       // Check if expired
       let isExpired = false;
-      const slotDate = new Date(queryDate);
-      slotDate.setHours(i, 0, 0, 0);
-      if (slotDate < now) {
+      
+      // Assuming IST (Asia/Kolkata) timezone for the facility
+      const istTimeString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+      const nowIST = new Date(istTimeString);
+      
+      // Parse the queried date (YYYY-MM-DD)
+      const [year, month, day] = date.split('-').map(Number);
+      
+      // Create a Date object representing the slot time in "IST" context
+      // This works by creating both dates in the server's local timezone context
+      // but with the hours representing IST hours.
+      const slotDateIST = new Date(year, month - 1, day, i, 0, 0, 0);
+      
+      if (slotDateIST < nowIST) {
         isExpired = true;
       }
 
