@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { toPng } from 'html-to-image';
 
+const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+
 type Slot = {
   start: string;
   end: string;
@@ -48,7 +50,7 @@ export default function BookingFlow() {
     setLoading(true);
     try {
       // In production this would point to the deployed backend
-      const res = await fetch(`http://localhost:5000/api/slots?date=${selectedDate}`);
+      const res = await fetch(`${API_BASE_URL}/api/slots?date=${selectedDate}`);
       const data = await res.json();
       if (data.slots) {
         setSlots(data.slots);
@@ -80,7 +82,7 @@ export default function BookingFlow() {
     setBookingStatus('booking');
     
     try {
-      const res = await fetch('http://localhost:5000/api/bookings', {
+      const res = await fetch(`${API_BASE_URL}/api/bookings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

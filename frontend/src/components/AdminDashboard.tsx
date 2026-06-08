@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+
 interface Booking {
   id: string;
   playerName: string;
@@ -24,7 +26,7 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/admin/bookings', {
+      const res = await fetch(`${API_BASE_URL}/api/admin/bookings`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -38,7 +40,7 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
   const updateStatus = async (id: string, newStatus: string, otpCode?: string) => {
 
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/bookings/${id}/status`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/bookings/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
