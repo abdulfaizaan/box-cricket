@@ -47,10 +47,5 @@ npm run dev
 ```
 *(Runs on `http://localhost:4322`)*
 
-## 🔑 Default Admin Credentials
-To access the Host Portal:
-* **Email:** `Arsalan@boxcricket.com`
-* **Password:** `8897482687@MA_BOX`
-
 ---
 *Vibe coded with ⚡ by Antigravity.*
