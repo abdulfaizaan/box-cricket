@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingFlow from '../components/BookingFlow.tsx';
+---
+
+<Layout>
+  <main class="min-h-screen bg-[#f4f4f0] font-sans selection:bg-[#ccff00] selection:text-black py-12 px-4 sm:px-6 relative">
+    <!-- Decorative background element -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(black 2px, transparent 2px); background-size: 20px 20px;"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="flex justify-between items-center mb-10 bg-[#ccff00] border-4 border-black p-6 shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+        <h1 class="text-4xl font-black text-black tracking-tight uppercase">Book Your Slots</h1>
+        <a href="/" class="text-black bg-white border-2 border-black font-black uppercase hover:bg-black hover:text-white px-4 py-2 transition-colors flex items-center gap-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back Home
+        </a>
+      </div>
+      
+      <!-- React Component for the interactive booking flow -->
+      <BookingFlow client:load />
+      
+    </div>
+  </main>
+</Layout>
