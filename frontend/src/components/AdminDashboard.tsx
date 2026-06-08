@@ -152,21 +152,21 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
                   </tr>
                 ) : bookings.map((booking) => (
                   <tr key={booking.id} className="hover:bg-white/[0.02] transition-colors group">
-                    <td className="p-6">
+                    <td className="p-4 sm:p-6 whitespace-nowrap">
                       <div className="font-bold text-white text-base">{booking.playerName}</div>
                       <div className="text-sm text-slate-500 mt-1 flex items-center gap-1.5">
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         {booking.playerPhone}
                       </div>
                     </td>
-                    <td className="p-6">
+                    <td className="p-4 sm:p-6 whitespace-nowrap">
                       <div className="font-semibold text-slate-200">{new Date(booking.bookingDate).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</div>
                       <div className="text-sm text-slate-500 mt-1 font-mono bg-black/20 inline-block px-2 py-0.5 rounded border border-white/5">{booking.startTime} - {booking.endTime}</div>
                     </td>
-                    <td className="p-6 font-extrabold text-emerald-400 text-lg">
+                    <td className="p-4 sm:p-6 font-extrabold text-emerald-400 text-lg whitespace-nowrap">
                       ₹{booking.totalPrice}
                     </td>
-                    <td className="p-6">
+                    <td className="p-4 sm:p-6 whitespace-nowrap">
                       <span className={`px-3 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase inline-flex items-center gap-1.5 ${
                         booking.status === 'VERIFIED' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
                         booking.status === 'PENDING' ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' :

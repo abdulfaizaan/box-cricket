@@ -28,12 +28,12 @@ export default function AdminLogin({ onLoginSuccess }: { onLoginSuccess: (token:
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-slate-950 relative overflow-hidden font-sans">
+    <div className="flex justify-center items-center min-h-screen bg-slate-950 relative overflow-hidden font-sans px-4">
       {/* Animated background elements */}
       <div className="absolute top-[-10%] md:top-[-20%] left-[-10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-emerald-500/20 rounded-full blur-[80px] md:blur-[120px] animate-pulse"></div>
       <div className="absolute bottom-[-10%] md:bottom-[-20%] right-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-600/10 rounded-full blur-[100px] md:blur-[150px] animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-      <div className="relative z-10 bg-white/5 backdrop-blur-2xl p-6 md:p-10 mx-4 rounded-3xl shadow-2xl w-full max-w-md border border-white/10">
+      <div className="relative z-10 bg-white/5 backdrop-blur-2xl p-6 md:p-10 rounded-3xl shadow-2xl w-full max-w-md border border-white/10">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>

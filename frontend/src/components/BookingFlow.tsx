@@ -157,7 +157,7 @@ export default function BookingFlow() {
           
           <div className="text-center mt-6 sm:mt-8 border-t-4 border-dashed border-black pt-6 sm:pt-8">
             <p className="text-xs sm:text-sm text-black uppercase tracking-widest font-black mb-3 sm:mb-4">Your Verification OTP</p>
-            <p className="text-5xl sm:text-7xl font-black text-white bg-black tracking-[0.2em] py-3 sm:py-4 border-4 border-black shadow-[4px_4px_0px_rgba(204,255,0,1)] sm:shadow-[6px_6px_0px_rgba(204,255,0,1)] transform -rotate-1">{bookingResult.otpCode}</p>
+            <p className="text-4xl sm:text-7xl font-black text-white bg-black tracking-widest sm:tracking-[0.2em] py-3 sm:py-4 border-4 border-black shadow-[4px_4px_0px_rgba(204,255,0,1)] sm:shadow-[6px_6px_0px_rgba(204,255,0,1)] transform -rotate-1">{bookingResult.otpCode}</p>
           </div>
         </div>
         
