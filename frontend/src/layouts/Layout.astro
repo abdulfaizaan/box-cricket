@@ -5,12 +5,14 @@ import '../styles/global.css';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>PitchPass - Box Cricket Booking</title>
 	</head>
 	<body class="antialiased text-gray-900 bg-white">
-		<slot />
+		<div class="overflow-x-clip min-h-screen w-full">
+			<slot />
+		</div>
 	</body>
 </html>

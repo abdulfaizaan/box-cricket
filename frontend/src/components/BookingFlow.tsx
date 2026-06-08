@@ -133,48 +133,48 @@ export default function BookingFlow() {
 
   if (bookingStatus === 'success') {
     return (
-      <div className="bg-white p-10 border-4 border-black shadow-[12px_12px_0px_rgba(0,0,0,1)] text-center max-w-2xl mx-auto">
-        <div ref={ticketRef} className="printable-ticket-container bg-white pt-4 pb-8 px-8 -mx-8">
-          <div className="w-24 h-24 bg-[#ccff00] border-4 border-black rounded-full flex items-center justify-center mx-auto mb-8 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-          <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path></svg>
+      <div className="bg-white p-6 sm:p-10 border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[12px_12px_0px_rgba(0,0,0,1)] text-center max-w-2xl mx-auto">
+        <div ref={ticketRef} className="printable-ticket-container bg-white pt-4 pb-8 px-4 sm:px-8 -mx-4 sm:-mx-8">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-[#ccff00] border-4 border-black rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <svg className="w-10 h-10 sm:w-12 sm:h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path></svg>
         </div>
-        <h2 className="text-5xl font-black text-black mb-6 uppercase tracking-tighter">Booking Confirmed!</h2>
+        <h2 className="text-3xl sm:text-5xl font-black text-black mb-4 sm:mb-6 uppercase tracking-tighter">Booking Confirmed!</h2>
         
-        <div className="bg-[#f4f4f0] p-8 mb-8 inline-block text-left border-4 border-black w-full shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+        <div className="bg-[#f4f4f0] p-6 sm:p-8 mb-6 sm:mb-8 inline-block text-left border-4 border-black w-full shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden">
           {/* Ticket jagged edge effect */}
           <div className="absolute top-0 left-0 w-full flex justify-around -mt-2">
-            {[...Array(20)].map((_, i) => <div key={i} className="w-4 h-4 bg-white rounded-full border-b-4 border-black"></div>)}
+            {[...Array(20)].map((_, i) => <div key={i} className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full border-b-4 border-black"></div>)}
           </div>
           
           <div className="flex justify-between items-end mb-4 border-b-4 border-black pb-4 mt-4">
-            <span className="text-black font-black uppercase text-xl">Date</span>
-            <span className="text-black font-bold text-lg bg-white border-2 border-black px-3 py-1">{date}</span>
+            <span className="text-black font-black uppercase text-lg sm:text-xl">Date</span>
+            <span className="text-black font-bold text-base sm:text-lg bg-white border-2 border-black px-2 sm:px-3 py-1">{date}</span>
           </div>
-          <div className="flex justify-between items-end mb-6">
-            <span className="text-black font-black uppercase text-xl">Total Paid</span>
-            <span className="text-4xl font-black text-black bg-[#ccff00] border-2 border-black px-3 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]">₹{bookingResult.totalPrice}</span>
+          <div className="flex justify-between items-end mb-4 sm:mb-6">
+            <span className="text-black font-black uppercase text-lg sm:text-xl">Total Paid</span>
+            <span className="text-2xl sm:text-4xl font-black text-black bg-[#ccff00] border-2 border-black px-2 sm:px-3 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]">₹{bookingResult.totalPrice}</span>
           </div>
           
-          <div className="text-center mt-8 border-t-4 border-dashed border-black pt-8">
-            <p className="text-sm text-black uppercase tracking-widest font-black mb-4">Your Verification OTP</p>
-            <p className="text-7xl font-black text-white bg-black tracking-[0.2em] py-4 border-4 border-black shadow-[6px_6px_0px_rgba(204,255,0,1)] transform -rotate-1">{bookingResult.otpCode}</p>
+          <div className="text-center mt-6 sm:mt-8 border-t-4 border-dashed border-black pt-6 sm:pt-8">
+            <p className="text-xs sm:text-sm text-black uppercase tracking-widest font-black mb-3 sm:mb-4">Your Verification OTP</p>
+            <p className="text-5xl sm:text-7xl font-black text-white bg-black tracking-[0.2em] py-3 sm:py-4 border-4 border-black shadow-[4px_4px_0px_rgba(204,255,0,1)] sm:shadow-[6px_6px_0px_rgba(204,255,0,1)] transform -rotate-1">{bookingResult.otpCode}</p>
           </div>
         </div>
         
-        <div className="flex items-start gap-4 text-left bg-black text-white p-5 border-4 border-black shadow-[6px_6px_0px_rgba(204,255,0,1)] mb-8 transform rotate-1">
-          <svg className="w-8 h-8 text-[#ccff00] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <p className="font-bold text-lg">
+        <div className="flex items-start gap-3 sm:gap-4 text-left bg-black text-white p-4 sm:p-5 border-4 border-black shadow-[4px_4px_0px_rgba(204,255,0,1)] sm:shadow-[6px_6px_0px_rgba(204,255,0,1)] mb-6 sm:mb-8 transform rotate-1">
+          <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#ccff00] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <p className="font-bold text-sm sm:text-lg">
             Payment must be made offline at the venue. Screenshot this ticket and show the OTP to the admin upon arrival.
           </p>
         </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 no-print mt-4">
-          <button onClick={downloadTicket} className="w-full bg-[#ccff00] text-black border-4 border-black px-8 py-5 font-black uppercase text-xl transition-colors shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[8px] hover:translate-y-[8px] flex justify-center items-center gap-2">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <div className="flex flex-col sm:flex-row gap-4 no-print mt-2 sm:mt-4">
+          <button onClick={downloadTicket} className="w-full bg-[#ccff00] text-black border-4 border-black px-6 sm:px-8 py-4 sm:py-5 font-black uppercase text-lg sm:text-xl transition-colors shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] flex justify-center items-center gap-2">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             Download Ticket
           </button>
-          <button onClick={() => window.location.href = '/'} className="w-full bg-white text-black border-4 border-black px-8 py-5 font-black uppercase text-xl hover:bg-black hover:text-white transition-colors shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[8px] hover:translate-y-[8px]">
+          <button onClick={() => window.location.href = '/'} className="w-full bg-white text-black border-4 border-black px-6 sm:px-8 py-4 sm:py-5 font-black uppercase text-lg sm:text-xl hover:bg-black hover:text-white transition-colors shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px]">
             Return Home
           </button>
         </div>
@@ -232,17 +232,17 @@ export default function BookingFlow() {
   });
 
   return (
-    <div className="grid lg:grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
       {/* Left Column: Slots */}
-      <div className="lg:col-span-2 bg-white p-8 border-4 border-black shadow-[12px_12px_0px_rgba(0,0,0,1)]">
-        <div className="mb-10 flex flex-col gap-6 border-b-4 border-black pb-8">
+      <div className="lg:col-span-2 bg-white p-4 sm:p-8 border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[12px_12px_0px_rgba(0,0,0,1)]">
+        <div className="mb-8 sm:mb-10 flex flex-col gap-4 sm:gap-6 border-b-4 border-black pb-6 sm:pb-8">
           <div>
-            <h2 className="text-4xl font-black text-black uppercase tracking-tight">Select Date & Time</h2>
-            <p className="text-black font-bold mt-2 text-lg">Choose the slots you wish to smash.</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-black uppercase tracking-tight">Select Date & Time</h2>
+            <p className="text-black font-bold mt-2 text-base sm:text-lg">Choose the slots you wish to smash.</p>
           </div>
           
           {/* Horizontal Brutalist Date Selector */}
-          <div className="flex gap-4 overflow-x-auto pb-4 snap-x hide-scrollbar [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full">
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 snap-x hide-scrollbar [scrollbar-width:none] [&::-webkit-scrollbar]:hidden w-full">
             {upcomingDates.map(d => {
               const isSelected = date === d.isoString;
               return (
@@ -250,15 +250,15 @@ export default function BookingFlow() {
                   key={d.isoString}
                   onClick={() => setDate(d.isoString)}
                   type="button"
-                  className={`snap-center flex-shrink-0 w-24 h-28 border-4 border-black flex flex-col items-center justify-center transition-all ${
+                  className={`snap-center flex-shrink-0 w-20 sm:w-24 h-24 sm:h-28 border-4 border-black flex flex-col items-center justify-center transition-all ${
                     isSelected 
-                      ? 'bg-black text-[#ccff00] shadow-none translate-x-[6px] translate-y-[6px]' 
-                      : 'bg-white text-black hover:bg-[#ccff00] shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)]'
+                      ? 'bg-black text-[#ccff00] shadow-none translate-x-[4px] translate-y-[4px] sm:translate-x-[6px] sm:translate-y-[6px]' 
+                      : 'bg-white text-black hover:bg-[#ccff00] shadow-[4px_4px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:hover:shadow-[4px_4px_0px_rgba(0,0,0,1)]'
                   }`}
                 >
-                  <span className={`text-sm font-black uppercase tracking-widest ${isSelected ? 'text-white' : 'text-gray-500'}`}>{d.dayName}</span>
-                  <span className="text-4xl font-black mt-1 mb-1">{d.dayNumber}</span>
-                  <span className={`text-xs font-bold uppercase ${isSelected ? 'text-[#ccff00]' : 'text-gray-400'}`}>{d.monthName}</span>
+                  <span className={`text-xs sm:text-sm font-black uppercase tracking-widest ${isSelected ? 'text-white' : 'text-gray-500'}`}>{d.dayName}</span>
+                  <span className="text-3xl sm:text-4xl font-black mt-1 mb-1">{d.dayNumber}</span>
+                  <span className={`text-[10px] sm:text-xs font-bold uppercase ${isSelected ? 'text-[#ccff00]' : 'text-gray-400'}`}>{d.monthName}</span>
                 </button>
               );
             })}
@@ -266,24 +266,24 @@ export default function BookingFlow() {
         </div>
 
         {loading ? (
-          <div className="text-center py-24">
-            <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-blue-600 mb-4"></div>
-            <p className="text-gray-500 font-medium text-lg">Fetching live availability...</p>
+          <div className="text-center py-16 sm:py-24">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 sm:h-10 sm:w-10 border-4 border-gray-200 border-t-blue-600 mb-4"></div>
+            <p className="text-gray-500 font-medium text-base sm:text-lg">Fetching live availability...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
             {slots.map((slot) => {
               const isSelected = selectedSlots.has(slot.start);
-              let btnClass = "p-4 border-4 text-center transition-all duration-150 focus:outline-none flex flex-col items-center justify-center ";
+              let btnClass = "p-3 sm:p-4 border-4 text-center transition-all duration-150 focus:outline-none flex flex-col items-center justify-center ";
               
               if (slot.status === 'AVAILABLE') {
                 if (isSelected) {
-                  btnClass += "border-black bg-black text-[#ccff00] shadow-none translate-x-[6px] translate-y-[6px]";
+                  btnClass += "border-black bg-black text-[#ccff00] shadow-none translate-x-[4px] translate-y-[4px] sm:translate-x-[6px] sm:translate-y-[6px]";
                 } else {
-                  btnClass += "border-black bg-white hover:bg-[#ccff00] text-black cursor-pointer shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]";
+                  btnClass += "border-black bg-white hover:bg-[#ccff00] text-black cursor-pointer shadow-[4px_4px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[6px] sm:hover:translate-y-[6px]";
                 }
               } else if (slot.status === 'BOOKED') {
-                btnClass += "border-black bg-[#f4f4f0] text-gray-400 cursor-not-allowed shadow-[6px_6px_0px_rgba(0,0,0,0.1)] relative overflow-hidden";
+                btnClass += "border-black bg-[#f4f4f0] text-gray-400 cursor-not-allowed shadow-[4px_4px_0px_rgba(0,0,0,0.1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,0.1)] relative overflow-hidden";
               } else {
                 btnClass += "border-gray-300 bg-gray-100 text-gray-400 cursor-not-allowed shadow-none";
               }
@@ -301,8 +301,8 @@ export default function BookingFlow() {
                   className={btnClass}
                 >
                   {slot.status === 'BOOKED' && <div className="absolute inset-0 bg-black/5 flex items-center justify-center" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px)' }}></div>}
-                  <span className="text-xl font-black pointer-events-none relative z-10">{slot.start}</span>
-                  <span className={`text-sm mt-1 font-bold pointer-events-none relative z-10 ${isSelected ? 'text-white' : ''}`}>
+                  <span className="text-lg sm:text-xl font-black pointer-events-none relative z-10">{slot.start}</span>
+                  <span className={`text-xs sm:text-sm mt-1 font-bold pointer-events-none relative z-10 ${isSelected ? 'text-white' : ''}`}>
                     {slot.status === 'AVAILABLE' ? `₹${slot.price}` : slot.status}
                   </span>
                 </button>
@@ -313,35 +313,35 @@ export default function BookingFlow() {
       </div>
 
       {/* Right Column: Booking Form */}
-      <div className="bg-[#ccff00] p-8 border-4 border-black shadow-[12px_12px_0px_rgba(0,0,0,1)] h-fit sticky top-6">
-        <h2 className="text-3xl font-black text-black mb-8 uppercase tracking-tight bg-white border-2 border-black inline-block px-4 py-1 shadow-[4px_4px_0px_rgba(0,0,0,1)] transform -rotate-2">Book It</h2>
+      <div className="bg-[#ccff00] p-5 sm:p-8 border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] sm:shadow-[12px_12px_0px_rgba(0,0,0,1)] h-fit lg:sticky lg:top-6 mt-6 lg:mt-0">
+        <h2 className="text-2xl sm:text-3xl font-black text-black mb-6 sm:mb-8 uppercase tracking-tight bg-white border-2 border-black inline-block px-3 sm:px-4 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] transform -rotate-2">Book It</h2>
         
-        <div className="mb-8 bg-white p-6 border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-          <div className="flex justify-between items-end mb-4">
-            <span className="text-black font-black uppercase text-lg">Selected Slots</span>
-            <span className="font-black text-white bg-black px-4 py-1 text-xl shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">{selectedSlots.size}</span>
+        <div className="mb-6 sm:mb-8 bg-white p-4 sm:p-6 border-4 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+          <div className="flex justify-between items-end mb-3 sm:mb-4">
+            <span className="text-black font-black uppercase text-base sm:text-lg">Selected Slots</span>
+            <span className="font-black text-white bg-black px-3 sm:px-4 py-1 text-lg sm:text-xl shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">{selectedSlots.size}</span>
           </div>
-          <div className="flex justify-between items-end mt-4 pt-4 border-t-4 border-black">
-            <span className="text-black font-black uppercase text-lg">Total</span>
-            <span className="text-4xl font-black text-black">₹{selectedPrice}</span>
+          <div className="flex justify-between items-end mt-3 sm:mt-4 pt-3 sm:pt-4 border-t-4 border-black">
+            <span className="text-black font-black uppercase text-base sm:text-lg">Total</span>
+            <span className="text-3xl sm:text-4xl font-black text-black">₹{selectedPrice}</span>
           </div>
         </div>
 
-        <form onSubmit={handleBook} className="space-y-6">
+        <form onSubmit={handleBook} className="space-y-4 sm:space-y-6">
           <div>
-            <label className="block text-sm font-black text-black mb-2 uppercase tracking-wider">Full Name</label>
+            <label className="block text-xs sm:text-sm font-black text-black mb-1 sm:mb-2 uppercase tracking-wider">Full Name</label>
             <input 
               suppressHydrationWarning
               required
               type="text" 
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px]"
+              className="w-full p-3 sm:p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-base sm:text-lg shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_rgba(0,0,0,1)] sm:focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] sm:focus:translate-x-[2px] sm:focus:translate-y-[2px]"
               placeholder="VIRAT KOHLI"
             />
           </div>
           <div>
-            <label className="block text-sm font-black text-black mb-2 uppercase tracking-wider">Phone Number</label>
+            <label className="block text-xs sm:text-sm font-black text-black mb-1 sm:mb-2 uppercase tracking-wider">Phone Number</label>
             <input 
               suppressHydrationWarning
               required
@@ -349,19 +349,19 @@ export default function BookingFlow() {
               pattern="[0-9]{10}"
               value={phone}
               onChange={e => setPhone(e.target.value)}
-              className="w-full p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px]"
+              className="w-full p-3 sm:p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-base sm:text-lg shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_rgba(0,0,0,1)] sm:focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] sm:focus:translate-x-[2px] sm:focus:translate-y-[2px]"
               placeholder="10-DIGIT MOBILE"
             />
           </div>
           <div>
-            <label className="block text-sm font-black text-black mb-2 uppercase tracking-wider">Email Address</label>
+            <label className="block text-xs sm:text-sm font-black text-black mb-1 sm:mb-2 uppercase tracking-wider">Email Address</label>
             <input 
               suppressHydrationWarning
               required
               type="email" 
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px]"
+              className="w-full p-3 sm:p-4 border-4 border-black bg-white focus:bg-[#f4f4f0] outline-none transition-colors font-bold text-black text-base sm:text-lg shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_rgba(0,0,0,1)] sm:focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] sm:focus:translate-x-[2px] sm:focus:translate-y-[2px]"
               placeholder="VIRAT@EXAMPLE.COM"
             />
           </div>
@@ -369,17 +369,17 @@ export default function BookingFlow() {
           <button 
             type="submit"
             disabled={selectedSlots.size === 0 || bookingStatus === 'booking'}
-            className="w-full bg-black text-[#ccff00] font-black uppercase text-2xl py-5 border-4 border-black shadow-[8px_8px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[8px] hover:translate-y-[8px] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-[8px_8px_0px_rgba(255,255,255,1)] mt-8"
+            className="w-full bg-black text-[#ccff00] font-black uppercase text-xl sm:text-2xl py-4 sm:py-5 border-4 border-black shadow-[4px_4px_0px_rgba(255,255,255,1)] sm:shadow-[8px_8px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] sm:hover:translate-x-[8px] sm:hover:translate-y-[8px] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-[4px_4px_0px_rgba(255,255,255,1)] sm:disabled:shadow-[8px_8px_0px_rgba(255,255,255,1)] mt-6 sm:mt-8"
           >
             {bookingStatus === 'booking' ? (
-              <span className="flex items-center justify-center gap-3">
-                <div className="w-6 h-6 border-4 border-[#ccff00] border-t-transparent animate-spin"></div>
+              <span className="flex items-center justify-center gap-2 sm:gap-3">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 border-4 border-[#ccff00] border-t-transparent animate-spin"></div>
                 Confirming
               </span>
             ) : 'Smash It!'}
           </button>
           
-          <p className="text-sm text-center text-black font-bold mt-6 uppercase">
+          <p className="text-xs sm:text-sm text-center text-black font-bold mt-4 sm:mt-6 uppercase">
             ⚡ Pay offline at the venue.
           </p>
         </form>

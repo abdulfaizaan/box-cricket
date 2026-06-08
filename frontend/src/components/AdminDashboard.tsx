@@ -86,43 +86,43 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
     <div className="min-h-screen bg-slate-950 text-slate-300 font-sans pb-20">
       {/* Sticky Glass Header */}
       <div className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white tracking-tight">Host Dashboard</h1>
-              <p className="text-xs text-emerald-400 font-medium tracking-wider uppercase">Box Cricket Admin</p>
+              <h1 className="text-lg sm:text-xl font-bold text-white tracking-tight">Host Dashboard</h1>
+              <p className="text-[10px] sm:text-xs text-emerald-400 font-medium tracking-wider uppercase">Box Cricket Admin</p>
             </div>
           </div>
           <button
             onClick={onLogout}
-            className="bg-white/5 border border-white/10 text-slate-300 font-semibold px-5 py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-all hover:scale-105 flex items-center gap-2"
+            className="bg-white/5 border border-white/10 text-slate-300 font-semibold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl hover:bg-white/10 hover:text-white transition-all hover:scale-105 flex items-center gap-2 text-sm sm:text-base"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+            <svg className="w-4 h-4 hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
             Sign Out
           </button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6 sm:mt-10">
         {/* Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all"></div>
-            <p className="text-slate-400 font-medium text-sm mb-1 uppercase tracking-wider">Total Revenue</p>
-            <h3 className="text-4xl font-black text-white">₹{totalRevenue}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-10">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all"></div>
+            <p className="text-slate-400 font-medium text-xs sm:text-sm mb-1 uppercase tracking-wider">Total Revenue</p>
+            <h3 className="text-3xl sm:text-4xl font-black text-white">₹{totalRevenue}</h3>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
-            <p className="text-slate-400 font-medium text-sm mb-1 uppercase tracking-wider">Verified Bookings</p>
-            <h3 className="text-4xl font-black text-white">{verifiedCount}</h3>
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
+            <p className="text-slate-400 font-medium text-xs sm:text-sm mb-1 uppercase tracking-wider">Verified Bookings</p>
+            <h3 className="text-3xl sm:text-4xl font-black text-white">{verifiedCount}</h3>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl group-hover:bg-yellow-500/20 transition-all"></div>
-            <p className="text-slate-400 font-medium text-sm mb-1 uppercase tracking-wider">Pending Approvals</p>
-            <h3 className="text-4xl font-black text-white">{pendingCount}</h3>
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-yellow-500/10 rounded-full blur-3xl group-hover:bg-yellow-500/20 transition-all"></div>
+            <p className="text-slate-400 font-medium text-xs sm:text-sm mb-1 uppercase tracking-wider">Pending Approvals</p>
+            <h3 className="text-3xl sm:text-4xl font-black text-white">{pendingCount}</h3>
           </div>
         </div>
 
@@ -177,31 +177,33 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
                         {booking.status}
                       </span>
                     </td>
-                    <td className="p-6 text-right space-x-3">
-                      {booking.status === 'PENDING' && (
-                        <button
-                          onClick={() => {
-                            setCurrentVerifyId(booking.id);
-                            setOtpInput('');
-                            setVerifyModalOpen(true);
-                          }}
-                          className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500 hover:text-white px-4 py-2 rounded-xl text-sm font-bold transition-all shadow-sm"
-                        >
-                          Verify OTP
-                        </button>
-                      )}
-                      {booking.status !== 'CANCELLED' && (
-                        <button
-                          onClick={() => {
-                            if (window.confirm('Are you sure you want to cancel this booking?')) {
-                              updateStatus(booking.id, 'CANCELLED');
-                            }
-                          }}
-                          className="bg-white/5 text-slate-400 hover:bg-red-500/20 hover:text-red-400 px-4 py-2 rounded-xl text-sm font-bold transition-all"
-                        >
-                          Cancel
-                        </button>
-                      )}
+                    <td className="p-4 sm:p-6 text-right">
+                      <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3">
+                        {booking.status === 'PENDING' && (
+                          <button
+                            onClick={() => {
+                              setCurrentVerifyId(booking.id);
+                              setOtpInput('');
+                              setVerifyModalOpen(true);
+                            }}
+                            className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500 hover:text-white px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm whitespace-nowrap w-full sm:w-auto"
+                          >
+                            Verify OTP
+                          </button>
+                        )}
+                        {booking.status !== 'CANCELLED' && (
+                          <button
+                            onClick={() => {
+                              if (window.confirm('Are you sure you want to cancel this booking?')) {
+                                updateStatus(booking.id, 'CANCELLED');
+                              }
+                            }}
+                            className="bg-white/5 text-slate-400 hover:bg-red-500/20 hover:text-red-400 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap w-full sm:w-auto"
+                          >
+                            Cancel
+                          </button>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -218,12 +220,12 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setVerifyModalOpen(false)}
           ></div>
-          <div className="relative bg-slate-900 border border-white/10 rounded-3xl shadow-2xl w-full max-w-sm p-8 animate-in zoom-in-95 duration-200">
-            <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 border border-emerald-500/20">
-              <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <div className="relative bg-slate-900 border border-white/10 rounded-3xl shadow-2xl w-full max-w-sm p-6 sm:p-8 animate-in zoom-in-95 duration-200">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 border border-emerald-500/20">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Verify Booking</h3>
-            <p className="text-slate-400 text-sm mb-6">Enter the 6-digit OTP provided by the player to confirm their arrival and payment.</p>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Verify Booking</h3>
+            <p className="text-slate-400 text-xs sm:text-sm mb-6">Enter the 6-digit OTP provided by the player to confirm their arrival and payment.</p>
             
             <form onSubmit={handleVerifySubmit}>
               <input
