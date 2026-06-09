@@ -1,0 +1,9 @@
+import type { Request, Response, NextFunction } from 'express';
+export interface AuthRequest extends Request {
+    admin?: {
+        id: string;
+        email: string;
+    };
+}
+export declare const verifyAdmin: (req: AuthRequest, res: Response, next: NextFunction) => Response<any, Record<string, any>> | undefined;
+//# sourceMappingURL=auth.middleware.d.ts.map
