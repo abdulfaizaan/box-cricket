@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import AdminSettings from './AdminSettings';
+import OfflineBooking from './OfflineBooking';
 
 const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
 
@@ -14,6 +16,7 @@ interface Booking {
 }
 
 export default function AdminDashboard({ token, onLogout }: { token: string; onLogout: () => void }) {
+  const [activeTab, setActiveTab] = useState<'bookings' | 'offline' | 'settings'>('bookings');
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [verifyModalOpen, setVerifyModalOpen] = useState(false);
   const [currentVerifyId, setCurrentVerifyId] = useState<string | null>(null);
@@ -140,7 +143,33 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
           </div>
         </div>
 
+        {/* Tabs */}
+        <div className="flex gap-4 mb-6">
+          <button 
+            onClick={() => setActiveTab('bookings')}
+            className={`px-4 py-2 rounded-xl font-bold transition-all ${activeTab === 'bookings' ? 'bg-emerald-500 text-white' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+          >
+            All Bookings
+          </button>
+          <button 
+            onClick={() => setActiveTab('offline')}
+            className={`px-4 py-2 rounded-xl font-bold transition-all ${activeTab === 'offline' ? 'bg-emerald-500 text-white' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+          >
+            Offline Block
+          </button>
+          <button 
+            onClick={() => setActiveTab('settings')}
+            className={`px-4 py-2 rounded-xl font-bold transition-all ${activeTab === 'settings' ? 'bg-emerald-500 text-white' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+          >
+            Settings
+          </button>
+        </div>
+
+        {activeTab === 'offline' && <OfflineBooking token={token} />}
+        {activeTab === 'settings' && <AdminSettings token={token} />}
+
         {/* Bookings Table */}
+        {activeTab === 'bookings' && (
         <div className="bg-white/5 rounded-3xl border border-white/10 overflow-hidden shadow-2xl backdrop-blur-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
@@ -225,6 +254,7 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
             </table>
           </div>
         </div>
+        )}
       </div>
 
       {/* OTP Verification Modal */}

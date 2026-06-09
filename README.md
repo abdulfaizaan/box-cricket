@@ -26,6 +26,9 @@ This project was built to feel *alive*.
 * **Advance Booking:** Horizontally scroll through 30 days of advance slots.
 * **OTP Verification:** Generates a secure 6-digit OTP for every booking. Players show this OTP at the venue to pay offline and play.
 * **Admin Controls:** Secure `/host-xyz-secret` portal to view all bookings, check statuses, and mark OTPs as verified.
+* **📲 WhatsApp Notifications:** Get instant WhatsApp alerts on your phone whenever a new booking is made — powered by the free [CallMeBot](https://www.callmebot.com/) API. Configure your number and API key right from the Admin Settings tab.
+* **🚫 Offline Slot Blocking:** Manually block out slots that were booked offline (walk-ins, phone calls) directly from the Admin Dashboard so they don't show up as available on the website.
+* **⚡ Optimized Performance:** Slot loading is lightning-fast with backend query optimizations and frontend render memoization.
 
 ## 💻 Running Locally
 

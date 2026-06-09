@@ -51,6 +51,21 @@ export const createBooking = async (req: Request, res: Response) => {
         })
       )
     );
+    // Asynchronously send WhatsApp notification
+    (async () => {
+      try {
+        const admin = await prisma.admin.findFirst({
+          where: { whatsappNumber: { not: null }, whatsappApiKey: { not: null } }
+        });
+        if (admin && admin.whatsappNumber && admin.whatsappApiKey) {
+          const message = `🔔 *New Booking Alert* 🔔\n\n*Name:* ${playerName}\n*Phone:* ${playerPhone}\n*Date:* ${bookingDate}\n*Slots:* ${slots.join(', ')}\n*Total:* ₹${totalPrice}\n*OTP:* ${otpCode}`;
+          const url = `https://api.callmebot.com/whatsapp.php?phone=${admin.whatsappNumber}&text=${encodeURIComponent(message)}&apikey=${admin.whatsappApiKey}`;
+          await fetch(url);
+        }
+      } catch (err) {
+        console.error('Failed to send WhatsApp notification:', err);
+      }
+    })();
 
     res.status(201).json({
       message: "Booking successful",
@@ -63,7 +78,6 @@ export const createBooking = async (req: Request, res: Response) => {
         end: b.endTime
       }))
     });
-
   } catch (error: any) {
     console.error('Booking error:', error);
     

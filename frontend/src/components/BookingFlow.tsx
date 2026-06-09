@@ -44,6 +44,19 @@ export default function BookingFlow() {
     fetchSlots(date);
   }, [date]);
 
+  const upcomingDates = React.useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() + i);
+      return {
+        isoString: getLocalDateString(d),
+        dayName: i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', { weekday: 'short' }),
+        dayNumber: d.getDate(),
+        monthName: d.toLocaleDateString('en-US', { month: 'short' })
+      };
+    });
+  }, []);
+
   if (!mounted) {
     return (
       <div className="grid lg:grid-cols-3 gap-10 min-h-[500px] bg-white border-4 border-black p-8 shadow-[12px_12px_0px_rgba(0,0,0,1)]">
@@ -220,18 +233,7 @@ export default function BookingFlow() {
     return total + (slot ? slot.price : 0);
   }, 0);
 
-  const upcomingDates = React.useMemo(() => {
-    return Array.from({ length: 30 }).map((_, i) => {
-      const d = new Date();
-      d.setDate(d.getDate() + i);
-      return {
-        isoString: getLocalDateString(d),
-        dayName: i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', { weekday: 'short' }),
-        dayNumber: d.getDate(),
-        monthName: d.toLocaleDateString('en-US', { month: 'short' })
-      };
-    });
-  }, []);
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
