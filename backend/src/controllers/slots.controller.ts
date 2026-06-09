@@ -31,6 +31,17 @@ export const getSlots = async (req: Request, res: Response) => {
     // Create Date object for the current day being requested to compare with 'now'
     // Ensure we handle timezone and time correctly to check if slot is past.
     // For MVP, we will assume local time.
+    
+    // Assuming IST (Asia/Kolkata) timezone for the facility
+    const istTimeString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    const nowIST = new Date(istTimeString);
+    
+    // Parse the queried date (YYYY-MM-DD)
+    const dateParts = date.split('-');
+    const year = Number(dateParts[0]);
+    const month = Number(dateParts[1]);
+    const day = Number(dateParts[2]);
+    
     for (let i = 0; i < 24; i++) {
       const hourStr = i.toString().padStart(2, '0');
       const nextHourStr = ((i + 1) % 24).toString().padStart(2, '0');
@@ -46,13 +57,6 @@ export const getSlots = async (req: Request, res: Response) => {
       
       // Check if expired
       let isExpired = false;
-      
-      // Assuming IST (Asia/Kolkata) timezone for the facility
-      const istTimeString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
-      const nowIST = new Date(istTimeString);
-      
-      // Parse the queried date (YYYY-MM-DD)
-      const [year, month, day] = date.split('-').map(Number);
       
       // Create a Date object representing the slot time in "IST" context
       // This works by creating both dates in the server's local timezone context

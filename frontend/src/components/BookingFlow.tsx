@@ -220,16 +220,18 @@ export default function BookingFlow() {
     return total + (slot ? slot.price : 0);
   }, 0);
 
-  const upcomingDates = Array.from({ length: 30 }).map((_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() + i);
-    return {
-      isoString: getLocalDateString(d),
-      dayName: i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', { weekday: 'short' }),
-      dayNumber: d.getDate(),
-      monthName: d.toLocaleDateString('en-US', { month: 'short' })
-    };
-  });
+  const upcomingDates = React.useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() + i);
+      return {
+        isoString: getLocalDateString(d),
+        dayName: i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', { weekday: 'short' }),
+        dayNumber: d.getDate(),
+        monthName: d.toLocaleDateString('en-US', { month: 'short' })
+      };
+    });
+  }, []);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">

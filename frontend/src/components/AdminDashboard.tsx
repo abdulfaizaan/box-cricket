@@ -78,7 +78,16 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
     }
   };
 
+  const getLocalDateString = (d: Date) => {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+  const todayStr = getLocalDateString(new Date());
+
   const totalRevenue = bookings.filter(b => b.status === 'VERIFIED').reduce((sum, b) => sum + Number(b.totalPrice), 0);
+  const dailyRevenue = bookings.filter(b => b.status === 'VERIFIED' && b.bookingDate.startsWith(todayStr)).reduce((sum, b) => sum + Number(b.totalPrice), 0);
   const pendingCount = bookings.filter(b => b.status === 'PENDING').length;
   const verifiedCount = bookings.filter(b => b.status === 'VERIFIED').length;
 
@@ -108,7 +117,12 @@ export default function AdminDashboard({ token, onLogout }: { token: string; onL
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6 sm:mt-10">
         {/* Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-10">
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all"></div>
+            <p className="text-slate-400 font-medium text-xs sm:text-sm mb-1 uppercase tracking-wider">Daily Revenue</p>
+            <h3 className="text-3xl sm:text-4xl font-black text-white">₹{dailyRevenue}</h3>
+          </div>
           <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-6 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all"></div>
             <p className="text-slate-400 font-medium text-xs sm:text-sm mb-1 uppercase tracking-wider">Total Revenue</p>
